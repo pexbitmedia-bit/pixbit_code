@@ -22,7 +22,7 @@ const scenes = [
   { y: [52, 0, -6], rotateY: [18, 0, -10], rotateX: [4, 0, 3], z: [-90, 22, 0] },
   { y: [78, 0, 6], rotateY: [-18, 0, 8], rotateX: [16, 0, -4], z: [-30, 12, 6] },
   { y: [46, 0, -8], rotateY: [22, 0, -6], rotateX: [6, 0, 2], z: [-70, 10, -6] },
-] as const;
+];
 
 function StepCard({
   step,
@@ -34,7 +34,7 @@ function StepCard({
   progress: MotionValue<number>;
 }) {
   const reduce = useReducedMotion();
-  const scene = scenes[index] ?? scenes[0];
+  const scene = scenes[index] ?? scenes[0]!;
   const shift = index * 0.035;
   const range = [0.06 + shift, 0.28 + shift, 0.78];
   const y = useTransform(progress, range, scene.y);

@@ -18,7 +18,7 @@ type RevealProps = {
 
 export function Reveal({ children, className, delay = 0, as = 'div' }: RevealProps) {
   const reduce = useReducedMotion();
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement | null>(null);
   const [shown, setShown] = useState(false);
 
   useLayoutEffect(() => {
@@ -49,18 +49,25 @@ export function Reveal({ children, className, delay = 0, as = 'div' }: RevealPro
     return <div className={className}>{children}</div>;
   }
 
-  const MotionTag = as === 'li' ? motion.li : motion.div;
+  const motionProps = {
+    className,
+    initial: false as const,
+    animate: shown ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 },
+    transition: { duration: 0.7, delay, ease: EASE },
+  };
+
+  if (as === 'li') {
+    return (
+      <motion.li ref={(node) => { ref.current = node; }} {...motionProps}>
+        {children}
+      </motion.li>
+    );
+  }
 
   return (
-    <MotionTag
-      ref={ref}
-      className={className}
-      initial={false}
-      animate={shown ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
-      transition={{ duration: 0.7, delay, ease: EASE }}
-    >
+    <motion.div ref={(node) => { ref.current = node; }} {...motionProps}>
       {children}
-    </MotionTag>
+    </motion.div>
   );
 }
 

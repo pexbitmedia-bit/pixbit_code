@@ -61,12 +61,12 @@ const scenes = [
     rotateX: [6, 0, 5, -3],
     z: [-160, 30, 8, -20],
   },
-] as const;
+];
 
 export function ServiceCard({ service, index, progress }: ServiceCardProps) {
   const reduce = useReducedMotion();
   const number = String(index + 1).padStart(2, '0');
-  const scene = scenes[index] ?? scenes[0];
+  const scene = scenes[index] ?? scenes[0]!;
   const look = looks[index] ?? looks[0];
   const hover = hovers[index] ?? hovers[0];
   const shift = index * 0.05;
