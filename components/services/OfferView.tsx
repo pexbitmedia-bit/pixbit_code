@@ -253,7 +253,7 @@ export function OfferView({ offering }: OfferViewProps) {
                 {offering.ctaText}
               </p>
               <div className="mt-8">
-                <MagneticButton href="/#contact" className="bg-white text-ink hover:bg-brand-soft">
+                <MagneticButton href="/#contact" variant="light">
                   {offering.ctaButton}
                 </MagneticButton>
               </div>

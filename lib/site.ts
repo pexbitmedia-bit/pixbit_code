@@ -14,7 +14,7 @@ export const siteUrl = resolveSiteUrl();
 export const siteName = 'Pexbit Media';
 export const siteDescription =
   'Pexbit Media is a personal branding agency for entrepreneurs, coaches, consultants, creators, and executives. We combine content creation, social media marketing, video editing, and Meta ads to turn you into the authority people ask for by name.';
-export const siteEmail = 'hello@pexbitmedia.com';
+export const siteEmail = 'pexbitmedia@gmail.com';
 
 export const socialLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/' },

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendContactEmails } from '@/lib/mail';
 import { allowRequest } from '@/lib/rate-limit';
 import { getClientIp, getWebhookUrl, isSameOrigin } from '@/lib/request';
 import { contactSchema, fieldErrors } from '@/lib/validations/contact';
@@ -117,9 +118,18 @@ export async function POST(request: Request) {
     );
   }
 
-  const configured = process.env.CONTACT_WEBHOOK_URL?.trim();
+  const payload = {
+    name: parsed.data.name,
+    email: parsed.data.email,
+    phone: parsed.data.phone,
+    message: parsed.data.message,
+  };
+
+  const hasResend = Boolean(process.env.RESEND_API_KEY?.trim());
+  const configuredWebhook = process.env.CONTACT_WEBHOOK_URL?.trim();
   const webhook = getWebhookUrl();
-  if (configured && !webhook) {
+
+  if (configuredWebhook && !webhook) {
     return respond(
       request,
       contentType,
@@ -128,16 +138,34 @@ export async function POST(request: Request) {
     );
   }
 
+  if (hasResend) {
+    try {
+      const sent = await sendContactEmails(payload);
+      if (!sent) {
+        return respond(
+          request,
+          contentType,
+          { ok: false, message: 'We could not send your request right now.' },
+          502,
+        );
+      }
+    } catch {
+      return respond(
+        request,
+        contentType,
+        { ok: false, message: 'We could not send your request right now.' },
+        502,
+      );
+    }
+  }
+
   if (webhook) {
     try {
       const forwarded = await fetch(webhook, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
-          name: parsed.data.name,
-          email: parsed.data.email,
-          phone: parsed.data.phone,
-          message: parsed.data.message,
+          ...payload,
           source: 'pexbit-media-website',
         }),
         redirect: 'error',

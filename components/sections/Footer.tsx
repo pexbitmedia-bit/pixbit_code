@@ -91,9 +91,20 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <p className="mx-auto max-w-6xl px-5 py-5 text-xs text-white/45 sm:px-8">
-          © {year} Pexbit Media. All rights reserved.
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <p>© {year} Pexbit Media. All rights reserved.</p>
+          <p>
+            Designed by{' '}
+            <a
+              href="https://akashportfoliio-coral.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold tracking-wide text-white/80 transition-colors hover:text-brand"
+            >
+              AKASH PANDEY
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );

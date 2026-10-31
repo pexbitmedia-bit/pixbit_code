@@ -22,6 +22,8 @@ export type Service = {
   icon: ServiceIconName;
   title: string;
   description: string;
+  image: string;
+  imageAlt: string;
   groups: ServiceGroup[];
   featured?: boolean;
 };

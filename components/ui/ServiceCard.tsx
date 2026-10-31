@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion, useTransform, type MotionValue } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ServiceIcon } from '@/components/ui/icons';
 import { cn } from '@/lib/cn';
@@ -91,6 +92,21 @@ export function ServiceCard({ service, index, progress }: ServiceCardProps) {
         {number}
       </div>
       <div className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-brand/0 blur-2xl transition-colors duration-500 group-hover:bg-brand/20" />
+
+      <div className="relative mb-5 overflow-hidden rounded-[1.35rem] border border-white/70 bg-ink/5 shadow-[0_14px_28px_-22px_rgba(139,31,224,0.45)]">
+        <div className="relative aspect-[16/10] overflow-hidden">
+          <Image
+            src={service.image}
+            alt={service.imageAlt}
+            fill
+            sizes="(max-width: 1280px) 90vw, 360px"
+            className="object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-110"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-40" />
+          <div className="pointer-events-none absolute inset-0 translate-y-full bg-gradient-to-r from-brand/25 via-transparent to-brand/10 transition-transform duration-700 ease-out group-hover:translate-y-0" />
+        </div>
+      </div>
+
       <div className="flex items-start justify-between gap-4">
         <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
           <ServiceIcon name={service.icon} />

@@ -38,6 +38,8 @@ export const services: Service[] = [
     title: 'Direction Session',
     description:
       'A private personal branding consultant session that settles your position, your audience, and the path your name should take next.',
+    image: '/images/service-direction.jpg',
+    imageAlt: 'Strategy notebook and pen for a personal branding Direction Session',
     groups: [
       {
         label: 'Inside the session',
@@ -58,6 +60,8 @@ export const services: Service[] = [
     title: 'Organic Presence',
     description:
       'An ongoing content creation and social media marketing system that keeps your ideas moving from strategy to a published cadence, in your voice.',
+    image: '/images/service-organic.jpg',
+    imageAlt: 'Camera and phone for organic content creation and social presence',
     groups: [
       {
         label: 'What we handle',
@@ -77,6 +81,8 @@ export const services: Service[] = [
     title: 'Pexbit 1.0',
     description:
       'The full build: organic presence, Meta ads and performance marketing, plus the website development people use to find you.',
+    image: '/images/service-pexbit.jpg',
+    imageAlt: 'Laptop and phone showing a personal brand website and performance system',
     featured: true,
     groups: [
       {

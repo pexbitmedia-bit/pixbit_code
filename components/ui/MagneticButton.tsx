@@ -10,7 +10,7 @@ import { EASE } from '@/lib/motion';
 type MagneticButtonProps = {
   children: ReactNode;
   className?: string;
-  variant?: 'primary' | 'ghost';
+  variant?: 'primary' | 'ghost' | 'light';
   href?: string;
   type?: 'button' | 'submit';
   disabled?: boolean;
@@ -20,6 +20,7 @@ type MagneticButtonProps = {
 const variants = {
   primary: 'bg-brand text-white shadow-glow hover:bg-brand-deep focus-visible:outline-white',
   ghost: 'border border-ink/15 bg-white text-ink hover:border-brand/40 hover:text-brand',
+  light: 'bg-white text-ink shadow-[0_12px_28px_-16px_rgba(255,255,255,0.55)] hover:bg-brand-soft hover:text-ink',
 };
 
 export function MagneticButton({
@@ -61,7 +62,7 @@ export function MagneticButton({
   const content = (
     <>
       {children}
-      {variant === 'primary' ? (
+      {variant === 'primary' || variant === 'light' ? (
         <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
       ) : null}
     </>
