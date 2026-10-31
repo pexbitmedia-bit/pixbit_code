@@ -24,7 +24,7 @@ export function Services() {
       <Container className="relative">
         <Reveal>
           <SectionHeading
-            eyebrow="Services"
+            eyebrow="Our Services"
             title="Three ways we put your name to work."
             highlight="your name"
             description="Start with a direction session, stay with an organic cadence, or take the full Pexbit 1.0 system."

@@ -79,7 +79,7 @@ export function Testimonials() {
 
   return (
     <section
-      className="relative overflow-hidden bg-brand-soft/60 py-12 sm:py-16"
+      className="relative overflow-hidden bg-brand-soft/60 pb-12 pt-8 sm:pb-16 sm:pt-10"
       aria-roledescription="carousel"
       aria-label="Client testimonials"
     >

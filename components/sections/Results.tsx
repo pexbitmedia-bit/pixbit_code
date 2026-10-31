@@ -198,7 +198,7 @@ export function Results() {
       <div ref={stage} className="bg-[linear-gradient(180deg,#ffffff_0%,#f6edff_22%,#f3e8ff_78%,#ffffff_100%)] py-12 sm:py-16">
         <Container>
                 <SectionHeading
-                  eyebrow="Results"
+                  eyebrow="Our Results"
                   title="Proof that a clear personal brand compounds."
                   highlight="compounds"
                   description="Recognition is not a spike. It is what happens when narrative, content, and distribution stay in one voice."
@@ -222,8 +222,8 @@ export function Results() {
               </div>
             </Container>
       </div>
-      <div className="pb-12 pt-4">
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.22em] text-ink/45">
+      <div className="pb-3 pt-2">
+        <p className="mb-3 text-center text-xs font-semibold uppercase tracking-[0.22em] text-ink/45">
           Press rooms we pitch
         </p>
         <Marquee />

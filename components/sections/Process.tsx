@@ -88,7 +88,7 @@ export function Process() {
     <section id="process" ref={sectionRef} className="overflow-hidden bg-white py-12 sm:py-16">
       <Container>
         <SectionHeading
-          eyebrow="Process"
+          eyebrow="Our Process"
           title="How we build your brand."
           highlight="build"
           description="Five stages, from the story only you can tell to a presence that keeps earning attention."

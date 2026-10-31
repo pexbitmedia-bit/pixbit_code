@@ -10,7 +10,7 @@ export const navItems: NavItem[] = [
   { id: 'contact', label: 'Contact' },
 ];
 
-export const audiences = ['Founders', 'Coaches', 'Consultants', 'Creators', 'Executives'] as const;
+export const audiences = ['Entrepreneurs', 'Coaches', 'Consultants', 'Creators', 'Executives'] as const;
 
 export const whyStats: Stat[] = [
   {
@@ -37,7 +37,7 @@ export const services: Service[] = [
     icon: 'mark',
     title: 'Direction Session',
     description:
-      'A private working session that settles your position, your audience, and the path your name should take next.',
+      'A private personal branding consultant session that settles your position, your audience, and the path your name should take next.',
     groups: [
       {
         label: 'Inside the session',
@@ -57,7 +57,7 @@ export const services: Service[] = [
     icon: 'video',
     title: 'Organic Presence',
     description:
-      'An ongoing system that keeps your ideas moving from strategy to a published cadence, in your voice.',
+      'An ongoing content creation and social media marketing system that keeps your ideas moving from strategy to a published cadence, in your voice.',
     groups: [
       {
         label: 'What we handle',
@@ -76,7 +76,7 @@ export const services: Service[] = [
     icon: 'site',
     title: 'Pexbit 1.0',
     description:
-      'The full build: organic presence, paid media, and the digital products people use to find you.',
+      'The full build: organic presence, Meta ads and performance marketing, plus the website development people use to find you.',
     featured: true,
     groups: [
       {
@@ -113,12 +113,12 @@ export const processSteps: ProcessStep[] = [
   },
   {
     title: 'Content',
-    description: 'Profile, personal site, scripts, and thought leadership written in your voice.',
+    description: 'Profile, portfolio website, scripts, and content creation written in your voice.',
   },
   {
     title: 'Distribution',
     description:
-      'LinkedIn, short-form video, and press placements that turn the narrative into proof.',
+      'LinkedIn, Instagram reels, YouTube shorts, and press placements that turn the narrative into proof.',
   },
   {
     title: 'Growth',

@@ -3,12 +3,12 @@ const contentSecurityPolicy = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https://i.ytimg.com https://i3.ytimg.com",
   "font-src 'self'",
   "connect-src 'self'",
   "media-src 'self'",
   "worker-src 'self' blob:",
-  "frame-src 'none'",
+  "frame-src https://www.youtube-nocookie.com",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -37,6 +37,9 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  images: {
+    remotePatterns: [{ protocol: 'https', hostname: 'i.ytimg.com' }],
+  },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },

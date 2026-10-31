@@ -12,17 +12,16 @@ export function WhyBranding() {
       <Container className="relative">
         <Reveal>
           <SectionHeading
-            eyebrow="Why personal branding"
+            eyebrow="Why Personal Branding Matters"
             title="Trust follows a person, not a logo."
             highlight="person"
-            description="A company can look established and still be forgettable. A clear personal brand makes you recognizable, credible, and easy to refer — the person clients ask for by name."
+            description="A company can look established and still be forgettable. Strong personal brand marketing makes you recognizable, credible, and easy to refer, so you become the person clients ask for by name."
           />
         </Reveal>
         <div className="mt-8 grid items-stretch gap-8 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-4">
           <Reveal delay={0.08} className="flex h-full items-end">
             <blockquote className="max-w-xl rounded-3xl border border-brand/15 bg-brand-soft/70 px-6 py-6 font-display text-2xl font-semibold leading-snug text-ink sm:text-3xl">
-              A company page can introduce the business. A personal brand is what makes someone
-              choose you.
+              A company page can introduce the business. A personal brand is what makes someone choose you.
             </blockquote>
           </Reveal>
           <div className="min-w-0 self-stretch">

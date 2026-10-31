@@ -381,8 +381,21 @@ export function Navbar() {
             animate={{ x: 0 }}
             exit={reduce ? undefined : { x: '100%' }}
             transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 320, damping: 34 }}
-            className="fixed bottom-0 right-0 top-[calc(4rem+env(safe-area-inset-top))] z-[65] flex w-full flex-col gap-1 overflow-y-auto overscroll-contain bg-white p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-card sm:top-[calc(5rem+env(safe-area-inset-top))] sm:w-[min(100%,24rem)] xl:hidden"
+            className="fixed inset-0 z-[90] flex h-[100dvh] w-full flex-col overflow-y-auto overscroll-contain bg-white px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-[max(0.75rem,env(safe-area-inset-top))] shadow-card sm:left-auto sm:w-[min(100%,24rem)] xl:hidden"
           >
+            <div className="mb-3 flex items-center justify-between">
+              <p className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-ink/45">Menu</p>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-sm font-semibold text-white"
+              >
+                Close
+                <span aria-hidden="true" className="text-base leading-none">
+                  ×
+                </span>
+              </button>
+            </div>
             {navItems.map((item, index) => (
               <motion.div
                 key={item.id}

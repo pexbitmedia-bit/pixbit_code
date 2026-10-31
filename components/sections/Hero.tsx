@@ -72,7 +72,7 @@ export function Hero() {
               variants={line}
               className="text-xs font-semibold uppercase tracking-[0.22em] text-brand"
             >
-              Personal branding studio
+              PERSONAL BRANDING AGENCY
             </motion.p>
             <motion.h1
               variants={line}
@@ -85,8 +85,7 @@ export function Hero() {
               variants={line}
               className="mt-6 max-w-xl text-base leading-relaxed text-ink/75 sm:text-lg"
             >
-              Pexbit Media builds and elevates personal brands for founders, coaches, consultants,
-              creators, and executives who want to become the authority people ask for by name.
+              Pexbit Media is a personal branding agency for entrepreneurs, coaches, consultants, creators, and executives. We combine content creation, social media marketing, video editing, and Meta ads to turn you into the authority people ask for by name.
             </motion.p>
             <motion.ul variants={line} className="mt-6 flex flex-wrap gap-2">
               {audiences.map((audience) => (
@@ -99,7 +98,7 @@ export function Hero() {
               ))}
             </motion.ul>
             <motion.div variants={line} className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <MagneticButton href="#contact">Book a Strategy Call</MagneticButton>
+              <MagneticButton href="#contact">Book a Free Strategy Call</MagneticButton>
               <MagneticButton href="#results" variant="ghost">
                 See Our Work
               </MagneticButton>

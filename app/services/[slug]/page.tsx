@@ -18,12 +18,12 @@ export function generateMetadata({ params }: ServicePageProps): Metadata {
   const offering = getOffering(params.slug);
   if (!offering) return {};
   return {
-    title: offering.title,
-    description: offering.lede,
+    title: { absolute: offering.seoTitle },
+    description: offering.seoDescription,
     alternates: { canonical: `/services/${offering.slug}` },
     openGraph: {
-      title: offering.title,
-      description: offering.lede,
+      title: offering.seoTitle,
+      description: offering.seoDescription,
       images: [{ url: offering.image, alt: offering.imageAlt }],
     },
   };

@@ -59,8 +59,11 @@ export function OfferView({ offering }: OfferViewProps) {
               <p className="mt-5 max-w-xl text-base leading-relaxed text-ink/75 sm:text-lg">
                 {offering.lede}
               </p>
-              <div className="mt-8">
-                <MagneticButton href="/#contact">Book a Strategy Call</MagneticButton>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <MagneticButton href="/#contact">{offering.primaryCta}</MagneticButton>
+                <a href="#why-it-matters" className="text-sm font-semibold text-brand">
+                  {offering.secondaryCta}
+                </a>
               </div>
             </motion.div>
             <div className="grid gap-4">
@@ -85,57 +88,127 @@ export function OfferView({ offering }: OfferViewProps) {
         </Container>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section id="why-it-matters" className="bg-white py-16 sm:py-24">
         <Container>
-          <div className="grid gap-6 lg:grid-cols-2">
-            {offering.chapters.map((chapter, index) => (
-              <Reveal key={chapter.title} delay={index * 0.06}>
-                <article className="h-full overflow-hidden rounded-[1.75rem] border border-ink/10 bg-white shadow-card">
-                  <div className="relative h-52">
-                    <Image
-                      src={offering.image}
-                      alt=""
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 520px"
-                      className={
-                        index % 2 === 0 ? 'object-cover object-left' : 'object-cover object-right'
-                      }
-                    />
-                  </div>
-                  <div className="p-6 sm:p-8">
-                    <p className="font-display text-sm font-semibold text-brand">
-                      {String(index + 1).padStart(2, '0')}
-                    </p>
-                    <h2 className="mt-3 font-display text-2xl font-semibold text-ink">
-                      {chapter.title}
-                    </h2>
-                    <p className="mt-3 text-sm leading-relaxed text-ink/70 sm:text-base">
-                      {chapter.text}
-                    </p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {offering.points.map((point, index) => (
-              <Reveal key={point} as="li" delay={index * 0.04}>
-                <div className="flex items-start gap-3 rounded-2xl border border-ink/10 bg-white px-4 py-4">
-                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-brand" />
-                  <p className="text-sm font-medium text-ink">{point}</p>
-                </div>
-              </Reveal>
-            ))}
-          </ul>
+          <Reveal>
+            <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+              {offering.whyHeading}
+            </h2>
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-ink/75 sm:text-lg">
+              {offering.whyText}
+            </p>
+          </Reveal>
         </Container>
       </section>
 
-      {offering.siblings.length > 0 ? (
-        <section className="bg-white py-20 sm:py-28">
+      {offering.cards.length > 0 ? (
+        <section className="py-16 sm:py-24">
+          <Container>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {offering.cards.map((card, index) => (
+                <Reveal key={card.title} delay={index * 0.06}>
+                  <article className="h-full overflow-hidden rounded-[1.75rem] border border-ink/10 bg-white p-6 shadow-card sm:p-8">
+                    <p className="font-display text-sm font-semibold text-brand">
+                      {String(index + 1).padStart(2, '0')}
+                    </p>
+                    <h2 className="mt-3 font-display text-2xl font-semibold text-ink">{card.title}</h2>
+                    <p className="mt-3 text-sm leading-relaxed text-ink/70 sm:text-base">{card.text}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
+      {offering.points.length > 0 ? (
+        <section className="bg-white py-16 sm:py-24">
           <Container>
             <Reveal>
               <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-                Continue through {offering.parent?.title ?? 'the studio'}
+                What you get
+              </h2>
+            </Reveal>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {offering.points.map((point, index) => (
+                <Reveal key={point} as="li" delay={index * 0.04}>
+                  <div className="flex items-start gap-3 rounded-2xl border border-ink/10 bg-paper px-4 py-4">
+                    <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-brand" />
+                    <p className="text-sm font-medium text-ink">{point}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </ul>
+          </Container>
+        </section>
+      ) : null}
+
+      {offering.whoHeading ? (
+        <section className="py-16 sm:py-24">
+          <Container>
+            <Reveal>
+              <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+                {offering.whoHeading}
+              </h2>
+              <p className="mt-5 max-w-3xl text-base leading-relaxed text-ink/75 sm:text-lg">
+                {offering.whoText}
+              </p>
+            </Reveal>
+          </Container>
+        </section>
+      ) : null}
+
+      {offering.steps.length > 0 ? (
+        <section className="bg-white py-16 sm:py-24">
+          <Container>
+            <Reveal>
+              <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+                {offering.processHeading}
+              </h2>
+            </Reveal>
+            <ol className="mt-10 grid gap-4 lg:grid-cols-5">
+              {offering.steps.map((step, index) => (
+                <Reveal key={step.title} as="li" delay={index * 0.05}>
+                  <article className="h-full rounded-[1.5rem] border border-ink/10 bg-paper p-5">
+                    <p className="font-display text-sm font-semibold text-brand">
+                      {String(index + 1).padStart(2, '0')}
+                    </p>
+                    <h3 className="mt-3 font-display text-xl font-semibold text-ink">{step.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink/70">{step.text}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </ol>
+          </Container>
+        </section>
+      ) : null}
+
+      {offering.faqs.length > 0 ? (
+        <section className="py-16 sm:py-24">
+          <Container>
+            <Reveal>
+              <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">FAQs</h2>
+            </Reveal>
+            <ul className="mt-8 space-y-4">
+              {offering.faqs.map((faq, index) => (
+                <Reveal key={faq.question} as="li" delay={index * 0.04}>
+                  <article className="rounded-[1.5rem] border border-ink/10 bg-white p-5 sm:p-6">
+                    <h3 className="font-display text-lg font-semibold text-ink">{faq.question}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink/70 sm:text-base">{faq.answer}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </ul>
+          </Container>
+        </section>
+      ) : null}
+
+      {offering.siblings.length > 0 ? (
+        <section className="bg-white py-16 sm:py-24">
+          <Container>
+            <Reveal>
+              <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+                {offering.relatedHeading}
               </h2>
             </Reveal>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -168,6 +241,26 @@ export function OfferView({ offering }: OfferViewProps) {
           </Container>
         </section>
       ) : null}
+
+      <section className="py-16 sm:py-24">
+        <Container>
+          <Reveal>
+            <div className="rounded-[2rem] border border-ink/10 bg-ink px-6 py-10 text-white sm:px-10 sm:py-14">
+              <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
+                {offering.ctaHeading}
+              </h2>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+                {offering.ctaText}
+              </p>
+              <div className="mt-8">
+                <MagneticButton href="/#contact" className="bg-white text-ink hover:bg-brand-soft">
+                  {offering.ctaButton}
+                </MagneticButton>
+              </div>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
     </article>
   );
 }

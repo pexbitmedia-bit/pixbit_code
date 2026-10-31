@@ -1,5 +1,7 @@
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 import { About } from '@/components/sections/About';
+import { Showreel } from '@/components/sections/Showreel';
 import { Footer } from '@/components/sections/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { WhyBranding } from '@/components/sections/WhyBranding';
@@ -10,9 +12,6 @@ const Services = dynamic(() =>
 );
 const Process = dynamic(() => import('@/components/sections/Process').then((mod) => mod.Process));
 const Results = dynamic(() => import('@/components/sections/Results').then((mod) => mod.Results));
-const VideoShowcase = dynamic(() =>
-  import('@/components/sections/VideoShowcase').then((mod) => mod.VideoShowcase),
-);
 const Testimonials = dynamic(() =>
   import('@/components/sections/Testimonials').then((mod) => mod.Testimonials),
 );
@@ -49,7 +48,9 @@ export default function HomePage({ searchParams }: HomePageProps) {
         <Results />
       </HalfRound>
       <HalfRound>
-        <VideoShowcase />
+        <Suspense>
+          <Showreel />
+        </Suspense>
       </HalfRound>
       <HalfRound>
         <Testimonials />
